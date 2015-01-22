@@ -98,7 +98,7 @@ readMaybe s = case reads s of
 
 firstRequest = "https://zkillboard.com/api/losses/factionID/500001/no-items/xml/"
 nextRequest :: Int -> String
-nextRequest kid =  "https://zkillboard.com/api/losses/afterKillID/"++ killStr ++"/factionID/500001/no-items/"
+nextRequest kid =  "https://zkillboard.com/api/losses/afterKillID/"++ killStr ++"/factionID/500001/no-items/xml/"
     where killStr = show kid
 
 zKillDiag :: Response b -> IO ()
