@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections #-}
 
+module Awaywox where
 
 import Data.Maybe
 import Control.Monad
@@ -151,8 +152,9 @@ nextQuery m = do
         0 -> put kid
         n -> put n
 
-main :: IO ()
-main = do
+
+awaywoxMain :: IO ()
+awaywoxMain = do
     m <- newManager conduitManagerSettings
     kid <- zKillQuery m firstRequest
     evalStateT (forever $ nextQuery m) kid
