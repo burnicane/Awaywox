@@ -97,9 +97,9 @@ readMaybe s = case reads s of
               _ -> Nothing
 
 
-firstRequest = "https://zkillboard.com/api/losses/factionID/500001/no-items/xml/"
+firstRequest = "https://zkillboard.com/api/losses/afterKillID/44093602/factionID/500001/no-items/xml/"
 nextRequest :: Int -> String
-nextRequest kid =  "https://zkillboard.com/api/losses/afterKillID/"++ killStr ++"/factionID/500001/no-items/xml/"
+nextRequest kid =  "https://zkillboard.com/api/losses/afterKillID/"++ killStr ++ "/factionID/500001/no-items/xml/"
     where killStr = show kid
 
 zKillDiag :: Response b -> IO ()
@@ -141,7 +141,7 @@ zKillQuery m s =
             prettyTraitors ts
             return kid
 
-delayTime = 1000000 * 60* 5
+delayTime = 1000000 * 60 * 5
 
 nextQuery :: Manager -> StateT Int IO ()
 nextQuery m = do
